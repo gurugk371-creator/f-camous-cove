@@ -1,0 +1,307 @@
+{
+  "candidates": {
+    "President": [
+      {
+        "id": "6a04033d5b2792b4a69d5dbf",
+        "name": "Aarav Sharma",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033d5b2792b4a69d5dc0",
+        "name": "himanshu",
+        "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033d5b2792b4a69d5dc2",
+        "name": "Reyansh Gupta",
+        "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033d5b2792b4a69d5dc3",
+        "name": "Krishna Verma",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      }
+    ],
+    "Vice President": [
+      {
+        "id": "6a04033d5b2792b4a69d5dc4",
+        "name": "Rahul Mehta",
+        "photo": "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dc5",
+        "name": "Arjun Reddy",
+        "photo": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dc6",
+        "name": "Siddharth Iyer",
+        "photo": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dc7",
+        "name": "Vikram Das",
+        "photo": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dc8",
+        "name": "Karan Joshi",
+        "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=300&h=300&fit=crop&crop=face"
+      }
+    ],
+    "Sports President": [
+      {
+        "id": "6a04033e5b2792b4a69d5dc9",
+        "name": "Rohan Mishra",
+        "photo": "https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dca",
+        "name": "Aakash Dubey",
+        "photo": "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dcb",
+        "name": "Nikhil Pandey",
+        "photo": "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dcc",
+        "name": "Ishaan Kumar",
+        "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dcd",
+        "name": "Dhruv Yadav",
+        "photo": "https://images.unsplash.com/photo-1583864697784-a0efc8379f70?w=300&h=300&fit=crop&crop=face"
+      }
+    ],
+    "Sports Vice President": [
+      {
+        "id": "6a04033e5b2792b4a69d5dce",
+        "name": "Anshul Kapoor",
+        "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dcf",
+        "name": "Pranav Nair",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033e5b2792b4a69d5dd0",
+        "name": "Tanmay Shah",
+        "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd1",
+        "name": "Harsh Tiwari",
+        "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd2",
+        "name": "Manish Saxena",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      }
+    ],
+    "Technical Head": [
+      {
+        "id": "6a04033f5b2792b4a69d5dd3",
+        "name": "Prateek Awasthi",
+        "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd4",
+        "name": "Kunal Chopra",
+        "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd5",
+        "name": "Shubham Luthra",
+        "photo": "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd6",
+        "name": "Ankit Bhatia",
+        "photo": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd7",
+        "name": "Deepak Rawat",
+        "photo": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop&crop=face"
+      }
+    ],
+    "Coding Club Lead": [
+      {
+        "id": "6a04033f5b2792b4a69d5dd8",
+        "name": "Abhishek Raut",
+        "photo": "https://images.unsplash.com/photo-1506803682981-6e718a9dd3ee?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dd9",
+        "name": "Saurabh Dixit",
+        "photo": "https://images.unsplash.com/photo-1552058544-f2b08422138a?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5dda",
+        "name": "Aayush Mittal",
+        "photo": "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5ddb",
+        "name": "Neeraj Oberoi",
+        "photo": "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a04033f5b2792b4a69d5ddc",
+        "name": "Tarun Khanna",
+        "photo": "https://images.unsplash.com/photo-1583864697784-a0efc8379f70?w=300&h=300&fit=crop&crop=face"
+      }
+    ],
+    "Social Media Coordinator": [
+      {
+        "id": "6a0403405b2792b4a69d5ddd",
+        "name": "Mohit Aggarwal",
+        "photo": "https://images.unsplash.com/photo-1531384441138-2736e62e0919?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a0403405b2792b4a69d5dde",
+        "name": "Varun Goel",
+        "photo": "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a0403405b2792b4a69d5ddf",
+        "name": "Amit Jain",
+        "photo": "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a0403405b2792b4a69d5de0",
+        "name": "Ritesh Bansal",
+        "photo": "https://images.unsplash.com/photo-1543610892-0b1f7e6d8ac1?w=300&h=300&fit=crop&crop=face"
+      },
+      {
+        "id": "6a0403405b2792b4a69d5de1",
+        "name": "Sumit Grover",
+        "photo": "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?w=300&h=300&fit=crop&crop=face"
+      }
+    ]
+  },
+  "votes": {
+    "President": {
+      "6a04033d5b2792b4a69d5dbf": 0,
+      "6a04033d5b2792b4a69d5dc0": 0,
+      "6a04033d5b2792b4a69d5dc2": 0,
+      "6a04033d5b2792b4a69d5dc3": 0
+    },
+    "Vice President": {
+      "6a04033d5b2792b4a69d5dc4": 0,
+      "6a04033e5b2792b4a69d5dc5": 0,
+      "6a04033e5b2792b4a69d5dc6": 0,
+      "6a04033e5b2792b4a69d5dc7": 0,
+      "6a04033e5b2792b4a69d5dc8": 0
+    },
+    "Sports President": {
+      "6a04033e5b2792b4a69d5dc9": 0,
+      "6a04033e5b2792b4a69d5dca": 0,
+      "6a04033e5b2792b4a69d5dcb": 0,
+      "6a04033e5b2792b4a69d5dcc": 0,
+      "6a04033e5b2792b4a69d5dcd": 0
+    },
+    "Sports Vice President": {
+      "6a04033e5b2792b4a69d5dce": 1,
+      "6a04033e5b2792b4a69d5dcf": 0,
+      "6a04033e5b2792b4a69d5dd0": 0,
+      "6a04033f5b2792b4a69d5dd1": 0,
+      "6a04033f5b2792b4a69d5dd2": 0
+    },
+    "Technical Head": {
+      "6a04033f5b2792b4a69d5dd3": 1,
+      "6a04033f5b2792b4a69d5dd4": 0,
+      "6a04033f5b2792b4a69d5dd5": 0,
+      "6a04033f5b2792b4a69d5dd6": 0,
+      "6a04033f5b2792b4a69d5dd7": 0
+    },
+    "Coding Club Lead": {
+      "6a04033f5b2792b4a69d5dd8": 0,
+      "6a04033f5b2792b4a69d5dd9": 0,
+      "6a04033f5b2792b4a69d5dda": 0,
+      "6a04033f5b2792b4a69d5ddb": 0,
+      "6a04033f5b2792b4a69d5ddc": 0
+    },
+    "Social Media Coordinator": {
+      "6a0403405b2792b4a69d5ddd": 0,
+      "6a0403405b2792b4a69d5dde": 0,
+      "6a0403405b2792b4a69d5ddf": 0,
+      "6a0403405b2792b4a69d5de0": 0,
+      "6a0403405b2792b4a69d5de1": 0
+    }
+  },
+  "votedRecords": [
+    {
+      "email": "gurugk371@gmail.com",
+      "mobile": "9997621707",
+      "rollNo": "65326665",
+      "course": "Technical Head",
+      "candidateId": "6a04033f5b2792b4a69d5dd3"
+    },
+    {
+      "email": "gurugk1@gmail.com",
+      "mobile": "9997621735",
+      "rollNo": "36656432",
+      "course": "Sports Vice President",
+      "candidateId": "6a04033e5b2792b4a69d5dce"
+    }
+  ],
+  "electionConfigs": {
+    "President": {
+      "position": "President",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": false
+    },
+    "Vice President": {
+      "position": "Vice President",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": true
+    },
+    "Sports President": {
+      "position": "Sports President",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": false
+    },
+    "Sports Vice President": {
+      "position": "Sports Vice President",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": true
+    },
+    "Technical Head": {
+      "position": "Technical Head",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": true
+    },
+    "Coding Club Lead": {
+      "position": "Coding Club Lead",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": true
+    },
+    "Social Media Coordinator": {
+      "position": "Social Media Coordinator",
+      "isActive": true,
+      "startTime": null,
+      "endTime": null,
+      "manuallyStopped": true
+    }
+  },
+  "electionOpen": true,
+  "createdAt": "2026-05-13T06:10:34.034Z"
+}

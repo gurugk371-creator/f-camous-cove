@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amrapali University Vote — Head Boy Elections</title>
+    <meta name="description" content="Secure online voting system for college Head Boy elections across all courses.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animated">
+        <div class="bg-orb bg-orb-1"></div>
+        <div class="bg-orb bg-orb-2"></div>
+        <div class="bg-orb bg-orb-3"></div>
+        <div class="bg-orb bg-orb-4"></div>
+        <div class="bg-orb bg-orb-5"></div>
+        <div class="bg-grid"></div>
+        <!-- Floating color streaks -->
+        <div class="color-streak streak-1"></div>
+        <div class="color-streak streak-2"></div>
+        <div class="color-streak streak-3"></div>
+    </div>
+
+    <!-- Floating Particles -->
+    <canvas id="particles-canvas"></canvas>
+
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" id="theme-toggle" onclick="toggleTheme()" title="Switch Theme">
+        <span class="theme-icon" id="theme-icon">🌙</span>
+    </button>
+
+    <main id="app">
+
+        <!-- =================== LOGIN SCREEN =================== -->
+        <section id="login-view" class="view active">
+            <!-- Full Page College Background -->
+            <div class="college-bg">
+                <img src="college.jpg" alt="Amrapali University Campus" class="college-bg-img" id="college-bg-img"
+                    onerror="if(typeof COLLEGE_IMG_BASE64!=='undefined')this.src=COLLEGE_IMG_BASE64">
+                <div class="college-bg-overlay"></div>
+            </div>
+
+            <!-- Floating Bubbles -->
+            <div class="bubbles-container" id="bubbles-container"></div>
+
+            <!-- Large Blurred VOTE Watermark -->
+            <div class="vote-watermark">VOTE</div>
+
+            <div class="login-wrapper">
+
+                <div class="brand-header">
+                    <div class="brand-logo">
+                        <span class="logo-icon pulse-glow">🗳️</span>
+                        <h1>Amrapali University<span class="brand-accent"> Vote</span></h1>
+                    </div>
+                    <p class="brand-tagline"><span id="tagline-text"></span><span class="typewriter-cursor"></span></p>
+                </div>
+
+                <!-- Role Tabs -->
+                <div class="role-tabs">
+                    <button class="role-tab active" data-role="student" id="tab-student"
+                        onclick="switchRole('student')">
+                        <span class="tab-icon">🎓</span> Student
+                    </button>
+                    <button class="role-tab" data-role="faculty" id="tab-faculty" onclick="switchRole('faculty')">
+                        <span class="tab-icon">👨‍🏫</span> Faculty
+                    </button>
+                </div>
+
+                <!-- Student Login Form -->
+                <form id="student-form" class="login-form active-form">
+                    <div class="form-grid">
+                        <div class="input-group full-width">
+                            <label for="s-name">Full Name</label>
+                            <input type="text" id="s-name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="s-email">Gmail Address</label>
+                            <input type="email" id="s-email" placeholder="yourname@gmail.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="s-mobile">Mobile Number</label>
+                            <input type="tel" id="s-mobile" placeholder="10-digit mobile number" pattern="[0-9]{10}"
+                                maxlength="10" inputmode="numeric" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="s-rollno">Roll Number</label>
+                            <input type="text" id="s-rollno" placeholder="8-digit roll number" pattern="[0-9]{8}"
+                                maxlength="8" inputmode="numeric" required>
+                        </div>
+                        <div class="input-group full-width">
+                            <label for="s-course">SELECT ELECTION POSITION</label>
+                            <select id="s-course" required>
+                                <option value="">-- Choose Election Position --</option>
+                                <option value="President">President — Student Council</option>
+                                <option value="Vice President">Vice President — Student Council</option>
+                                <option value="Sports President">Sports President — Sports Council</option>
+                                <option value="Sports Vice President">Sports Vice President — Sports Council</option>
+                                <option value="Technical Head">Technical Head — Technical Council</option>
+                                <option value="Coding Club Lead">Coding Club Lead — Coding Club</option>
+                                <option value="Social Media Coordinator">Social Media Coordinator — Media & PR</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary" id="student-login-btn">
+                        <span>Proceed to Vote</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+
+                <!-- Faculty Login Form -->
+                <form id="faculty-form" class="login-form">
+                    <div class="form-grid">
+                        <div class="input-group full-width">
+                            <label for="f-name">Full Name</label>
+                            <input type="text" id="f-name" placeholder="Enter your full name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="f-email">Gmail Address</label>
+                            <input type="email" id="f-email" placeholder="yourname@gmail.com" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="f-empid">Employee ID</label>
+                            <input type="text" id="f-empid" placeholder="e.g. FAC-001" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary" id="faculty-login-btn">
+                        <span>View Results Dashboard</span>
+                        <span class="btn-arrow">→</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- =================== VOTING SCREEN (Student) =================== -->
+        <section id="voting-view" class="view">
+            <div class="voting-wrapper">
+
+
+                <div class="voting-header">
+                    <div class="voting-header-left">
+                        <div class="course-badge" id="course-badge">President</div>
+                        <div>
+                            <h2 id="voting-title">Head Boy Election</h2>
+                            <p class="voting-sub">Select your candidate and cast your vote</p>
+                        </div>
+                    </div>
+                    <div class="voting-header-right">
+                        <div class="user-info">
+                            <span class="user-avatar" id="user-avatar">CS</span>
+                            <span id="user-display-name">User</span>
+                        </div>
+                        <button class="btn-logout" onclick="doLogout()">Logout</button>
+                    </div>
+                </div>
+
+                <div class="candidates-container" id="candidates-container">
+                    <!-- Candidates populated by JS -->
+                </div>
+
+                <div class="vote-action-bar hidden" id="vote-action-bar">
+                    <div class="selected-info">
+                        <span>Selected: </span>
+                        <strong id="selected-candidate-name">—</strong>
+                    </div>
+                    <button class="btn-vote" id="btn-cast-vote" onclick="castVote()">
+                        <span class="vote-icon">🗳️</span> Cast My Vote
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== THANK YOU SCREEN =================== -->
+        <section id="thankyou-view" class="view">
+            <div class="thankyou-card">
+                <div class="confetti-container" id="confetti-container"></div>
+                <div class="thankyou-content">
+                    <div class="success-checkmark">
+                        <svg viewBox="0 0 52 52">
+                            <circle cx="26" cy="26" r="25" fill="none" />
+                            <path fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                    <h2>Thank You!</h2>
+                    <p>Your vote has been cast successfully.</p>
+                    <p class="vote-receipt">You voted for <strong id="voted-for-name">—</strong></p>
+                    <div class="auto-logout-bar">
+                        <div class="logout-progress" id="logout-progress"></div>
+                    </div>
+                    <p class="logout-timer-text">Auto logout in <span id="logout-countdown">5</span>s</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== FACULTY RESULTS DASHBOARD =================== -->
+        <section id="results-view" class="view">
+            <div class="results-wrapper">
+                <div class="results-header">
+                    <div class="results-header-left">
+                        <h2>📊 Election Results Dashboard</h2>
+                        <p>Live vote counts across all courses</p>
+                    </div>
+                    <div class="results-header-right">
+                        <button class="btn-primary" onclick="openAddModal()"
+                            style="margin-right: 15px; font-size: 0.9rem; padding: 0.6rem 1rem;">+ Add
+                            Candidate</button>
+                        <span class="faculty-badge">Faculty View</span>
+                        <button class="btn-logout" onclick="doLogout()">Logout</button>
+                    </div>
+                </div>
+
+                <!-- Course Tabs for Results -->
+                <div class="results-tabs" id="results-tabs">
+                    <!-- Course tabs populated by JS -->
+                </div>
+
+                <div class="results-grid" id="results-grid">
+                    <!-- Candidates + votes populated by JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- =================== ADD/EDIT MODAL (Faculty) =================== -->
+        <div class="modal-overlay hidden" id="edit-modal">
+            <div class="modal-card">
+                <h3 id="modal-title">Edit Candidate</h3>
+                <form id="edit-form">
+                    <div class="input-group">
+                        <label for="edit-name">Candidate Name</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Candidate Photo</label>
+                        <div class="photo-upload-wrapper">
+                            <input type="file" id="edit-photo-file" accept="image/*" style="display: none;">
+                            <label for="edit-photo-file" class="btn-secondary"
+                                style="display: block; text-align: center; cursor: pointer; padding: 0.75rem; border-radius: 8px;">📁
+                                Choose Photo from Device</label>
+                            <span id="photo-file-name"
+                                style="display: block; text-align: center; margin-top: 5px; font-size: 0.8rem; opacity: 0.7;">No
+                                file chosen</span>
+                        </div>
+                    </div>
+
+                    <div class="modal-actions" style="display: flex; justify-content: space-between; gap: 10px;">
+                        <button type="button" class="btn-secondary hidden" id="btn-delete-candidate"
+                            onclick="deleteCandidate()"
+                            style="background: rgba(239, 68, 68, 0.1); color: #ef4444; border: 1px solid #ef4444;">🗑️
+                            Delete</button>
+                        <div style="display: flex; gap: 10px; flex: 1; justify-content: flex-end;">
+                            <button type="button" class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+                            <button type="submit" class="btn-primary" id="btn-save-candidate">Save Changes</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+
+
+        <!-- Toast notification -->
+        <div class="toast hidden" id="toast">
+            <span id="toast-msg"></span>
+        </div>
+
+    </main>
+
+    <script src="college-img.js"></script>
+    <script src="script.js"></script>
+</body>
+
+
+</html>
