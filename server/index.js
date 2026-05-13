@@ -44,12 +44,15 @@ app.use(helmet({
   contentSecurityPolicy: false
 }));
 
-// CORS — allow frontend origin
-const allowedOrigin = process.env.ALLOWED_ORIGIN || '*';
+// Dynamic CORS — echo the requesting origin to ensure 100% compatibility
 app.use(cors({
-  origin: allowedOrigin === '*' ? '*' : allowedOrigin.split(',').map(o => o.trim()),
+  origin: function (origin, callback) {
+    // Allow all origins dynamically
+    callback(null, true);
+  },
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  allowedHeaders: ['Content-Type', 'Authorization'],
+  credentials: true
 }));
 
 // Request logging
@@ -192,7 +195,7 @@ const { Server } = require('socket.io');
 const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
-    origin: allowedOrigin === '*' ? '*' : allowedOrigin.split(',').map(o => o.trim()),
+    origin: true, // reflect requesting origin
     methods: ['GET', 'POST']
   }
 });
