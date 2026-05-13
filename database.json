@@ -8,7 +8,7 @@
       },
       {
         "id": "6a04033d5b2792b4a69d5dc0",
-        "name": "himanshu",
+        "name": "HIAMSHU",
         "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop&crop=face"
       },
       {
@@ -207,7 +207,7 @@
       "6a04033e5b2792b4a69d5dcd": 0
     },
     "Sports Vice President": {
-      "6a04033e5b2792b4a69d5dce": 1,
+      "6a04033e5b2792b4a69d5dce": 0,
       "6a04033e5b2792b4a69d5dcf": 0,
       "6a04033e5b2792b4a69d5dd0": 0,
       "6a04033f5b2792b4a69d5dd1": 0,
@@ -242,13 +242,6 @@
       "rollNo": "65326665",
       "course": "Technical Head",
       "candidateId": "6a04033f5b2792b4a69d5dd3"
-    },
-    {
-      "email": "gurugk1@gmail.com",
-      "mobile": "9997621735",
-      "rollNo": "36656432",
-      "course": "Sports Vice President",
-      "candidateId": "6a04033e5b2792b4a69d5dce"
     }
   ],
   "electionConfigs": {
@@ -257,7 +250,7 @@
       "isActive": true,
       "startTime": null,
       "endTime": null,
-      "manuallyStopped": false
+      "manuallyStopped": true
     },
     "Vice President": {
       "position": "Vice President",
@@ -278,7 +271,7 @@
       "isActive": true,
       "startTime": null,
       "endTime": null,
-      "manuallyStopped": true
+      "manuallyStopped": false
     },
     "Technical Head": {
       "position": "Technical Head",
@@ -303,5 +296,5 @@
     }
   },
   "electionOpen": true,
-  "createdAt": "2026-05-13T06:10:34.034Z"
+  "createdAt": "2026-05-13T10:03:32.763Z"
 }
