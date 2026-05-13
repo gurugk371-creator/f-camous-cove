@@ -1,3 +1,4 @@
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { FiArrowRight } from 'react-icons/fi';
@@ -25,18 +26,33 @@ const STARS = Array.from({ length: 80 }, (_, i) => ({
 
 export default function HeroSection() {
   const navigate = useNavigate();
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  const visibleStars = isMobile ? STARS.slice(0, 20) : STARS;
 
   return (
     <div style={{ position: 'relative', flex: 1, overflow: 'hidden' }}>
 
       {/* ── Star field ─────────────────────────────────────── */}
-      {STARS.map(s => (
+      {visibleStars.map(s => (
         <motion.div key={s.id} style={{
           position: 'absolute', borderRadius: '50%',
           background: 'rgba(255,255,255,0.75)', pointerEvents: 'none',
           left: `${s.x}%`, top: `${s.y}%`, width: s.size, height: s.size, opacity: 0,
+          WebkitBackfaceVisibility: 'hidden',
+          transform: 'translate3d(0,0,0)',
+          willChange: 'opacity, transform',
         }}
-          animate={{ opacity: [0, 0.8, 0], x: [0, Math.random() * 30 - 15, 0], y: [0, Math.random() * 30 - 15, 0] }}
+          animate={isMobile ? { opacity: [0, 0.8, 0] } : { opacity: [0, 0.8, 0], x: [0, Math.random() * 30 - 15, 0], y: [0, Math.random() * 30 - 15, 0] }}
           transition={{ duration: s.dur, delay: s.delay, repeat: Infinity, ease: 'easeInOut' }}
         />
       ))}
@@ -45,44 +61,53 @@ export default function HeroSection() {
       {/* Main violet center */}
       <motion.div style={{
         position: 'absolute', borderRadius: '50%',
-        width: 700, height: 700, top: '50%', left: '50%',
+        width: isMobile ? 350 : 700, height: isMobile ? 350 : 700, top: '50%', left: '50%',
         background: 'radial-gradient(circle, rgba(88,28,220,0.35) 0%, transparent 70%)',
-        filter: 'blur(100px)', pointerEvents: 'none',
+        filter: isMobile ? 'blur(50px)' : 'blur(100px)', pointerEvents: 'none',
+        WebkitBackfaceVisibility: 'hidden',
+        transform: 'translate3d(-50%, -50%, 0)',
+        willChange: isMobile ? 'auto' : 'transform',
       }} 
-        animate={{ x: ['-50%', '-48%', '-52%', '-50%'], y: ['-50%', '-52%', '-48%', '-50%'] }}
+        animate={isMobile ? { x: '-50%', y: '-50%' } : { x: ['-50%', '-48%', '-52%', '-50%'], y: ['-50%', '-52%', '-48%', '-50%'] }}
         transition={{ duration: 20, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Top-right planet glow */}
       <motion.div style={{
         position: 'absolute', borderRadius: '50%',
-        width: 500, height: 500, top: '-12%', right: '-8%',
+        width: isMobile ? 300 : 500, height: isMobile ? 300 : 500, top: '-12%', right: '-8%',
         background: 'radial-gradient(circle, rgba(15,30,120,0.6) 30%, rgba(88,28,220,0.2) 70%, transparent 100%)',
-        filter: 'blur(30px)', pointerEvents: 'none',
+        filter: isMobile ? 'blur(15px)' : 'blur(30px)', pointerEvents: 'none',
+        WebkitBackfaceVisibility: 'hidden',
+        willChange: isMobile ? 'auto' : 'transform, opacity',
       }} 
-        animate={{ scale: [1, 1.05, 1], opacity: [1, 0.8, 1] }}
+        animate={isMobile ? {} : { scale: [1, 1.05, 1], opacity: [1, 0.8, 1] }}
         transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
       />
       {/* Bottom-left glow */}
       <motion.div style={{
         position: 'absolute', borderRadius: '50%',
-        width: 400, height: 400, bottom: '-10%', left: '5%',
+        width: isMobile ? 250 : 400, height: isMobile ? 250 : 400, bottom: '-10%', left: '5%',
         background: 'radial-gradient(circle, rgba(15,20,80,0.6) 0%, transparent 70%)',
-        filter: 'blur(70px)', pointerEvents: 'none',
+        filter: isMobile ? 'blur(35px)' : 'blur(70px)', pointerEvents: 'none',
+        WebkitBackfaceVisibility: 'hidden',
+        willChange: isMobile ? 'auto' : 'transform',
       }} 
-        animate={{ scale: [1, 1.1, 1], x: [0, 20, 0], y: [0, -20, 0] }}
+        animate={isMobile ? {} : { scale: [1, 1.1, 1], x: [0, 20, 0], y: [0, -20, 0] }}
         transition={{ duration: 18, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {/* ── Planet Ring (top-right) like reference ────────── */}
       <motion.div style={{
-        position: 'absolute', top: '-5%', right: '-5%',
-        width: 480, height: 480, borderRadius: '50%',
+        position: 'absolute', top: isMobile ? '-12%' : '-5%', right: isMobile ? '-15%' : '-5%',
+        width: isMobile ? 260 : 480, height: isMobile ? 260 : 480, borderRadius: '50%',
         background: 'radial-gradient(circle at 40% 40%, #0d1a5e 30%, #050d2e 100%)',
         boxShadow: '0 0 0 2px rgba(56,189,248,0.15)',
         overflow: 'visible',
         pointerEvents: 'none',
+        WebkitBackfaceVisibility: 'hidden',
+        willChange: isMobile ? 'auto' : 'transform',
       }}
-        animate={{ rotate: [0, 5, -5, 0] }}
+        animate={isMobile ? {} : { rotate: [0, 5, -5, 0] }}
         transition={{ duration: 25, repeat: Infinity, ease: 'easeInOut' }}
       >
         {/* Neon ring */}
@@ -151,13 +176,15 @@ export default function HeroSection() {
         <motion.div key={i}
           style={{
             position: 'absolute', borderRadius: '50%',
-            width: orb.w, height: orb.h,
+            width: isMobile ? orb.w * 0.7 : orb.w, height: isMobile ? orb.h * 0.7 : orb.h,
             top: orb.top, left: orb.left, right: orb.right, bottom: orb.bottom,
             background: 'radial-gradient(circle at 35% 30%, rgba(139,92,246,0.5), rgba(56,189,248,0.15))',
             border: '1px solid rgba(139,92,246,0.35)',
             boxShadow: '0 0 12px rgba(139,92,246,0.3)',
-            backdropFilter: 'blur(2px)',
+            backdropFilter: isMobile ? 'none' : 'blur(2px)',
             pointerEvents: 'none',
+            WebkitBackfaceVisibility: 'hidden',
+            willChange: 'transform, opacity',
           }}
           animate={{ y: [0, -12, 0], opacity: [0.6, 1, 0.6] }}
           transition={{ duration: 4 + i, delay: orb.delay, repeat: Infinity, ease: 'easeInOut' }}
@@ -171,10 +198,11 @@ export default function HeroSection() {
           linear-gradient(rgba(255,255,255,0.018) 1px, transparent 1px),
           linear-gradient(90deg, rgba(255,255,255,0.018) 1px, transparent 1px)
         `,
-        backgroundSize: '80px 80px',
+        backgroundSize: isMobile ? '40px 40px' : '80px 80px',
         maskImage: 'radial-gradient(ellipse 70% 60% at 50% 40%, black 30%, transparent 80%)',
+        WebkitBackfaceVisibility: 'hidden',
       }} 
-        animate={{ backgroundPosition: ['0px 0px', '80px 80px'] }}
+        animate={isMobile ? {} : { backgroundPosition: ['0px 0px', '80px 80px'] }}
         transition={{ duration: 15, repeat: Infinity, ease: 'linear' }}
       />
 

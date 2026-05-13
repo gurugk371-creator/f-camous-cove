@@ -10,6 +10,7 @@ const cors       = require('cors');
 const helmet     = require('helmet');
 const morgan     = require('morgan');
 const path       = require('path');
+const fs         = require('fs');
 const rateLimit  = require('express-rate-limit');
 
 const connectDB   = require('./config/db');
@@ -89,10 +90,15 @@ const authLimiter = rateLimit({
 //   STATIC FILES — Serve the frontend
 // ─────────────────────────────────────────────
 
-// Serve the 'client' folder as static
-const frontendPath = path.join(__dirname, '..', 'client');
+// Prefer built React client first, fallback to client-legacy which contains the static app
+let frontendPath = path.join(__dirname, '..', 'client', 'dist');
+if (!fs.existsSync(frontendPath)) {
+  frontendPath = path.join(__dirname, '..', 'client-legacy');
+}
+
+console.log(`📂  Serving static files from: ${frontendPath}`);
+
 app.use(express.static(frontendPath, {
-  // Don't serve the server folder itself
   extensions: ['html', 'css', 'js', 'jpg', 'png', 'gif', 'svg', 'ico', 'json']
 }));
 
@@ -142,6 +148,17 @@ app.get('/api/health', (req, res) => {
     version: '1.0.0',
     time:    new Date().toISOString(),
     env:     ENV
+  });
+});
+
+// ─────────────────────────────────────────────
+//   API FALLBACK — Ensure missing endpoints return JSON, not HTML
+// ─────────────────────────────────────────────
+
+app.all('/api/*', (req, res) => {
+  res.status(404).json({
+    success: false,
+    message: `API endpoint not found: ${req.method} ${req.originalUrl}`
   });
 });
 
